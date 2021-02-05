@@ -20,11 +20,11 @@ class CreatePostsTable extends Migration
             $table->integer('team')->nullable();
             $table->string('summary_am')->nullable();
             $table->integer('client_am')->nullable();
-            $table->text('contents_am')->nullable();
+            $table->longtext('contents_am')->nullable();
             $table->string('summary_pm')->nullable();
             $table->integer('client_pm')->nullable();
-            $table->text('contents_pm')->nullable();
-            $table->text('comment')->nullable();
+            $table->longtext('contents_pm')->nullable();
+            $table->longtext('comment')->nullable();
             $table->integer('status')->nullable();
             $table->timestamp('status_updated_at')->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
