@@ -22,7 +22,7 @@
 
                     <div class="btn-create-user" v-if="this.$page.user.auth_id == 1">
                         <a class="action-btn" :href="route('user.create')">
-                        <jet-button class="text-base">Userを作成</jet-button>
+                        <jet-button class="text-base">社員を登録</jet-button>
                         </a>
                     </div>
 
