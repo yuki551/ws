@@ -1,11 +1,11 @@
 <template>
     <jet-form-section @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            プロフィール
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            修正したい項目の内容を変更し、「保存」ボタンをクリックしてください。
         </template>
 
         <template #form>
@@ -43,14 +43,14 @@
 
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="name" value="Name" />
+                <jet-label for="name" value="名前" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autocomplete="name" />
                 <jet-input-error :message="form.error('name')" class="mt-2" />
             </div>
 
             <!-- Email -->
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="email" value="Email" />
+                <jet-label for="email" value="メールアドレス" />
                 <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
                 <jet-input-error :message="form.error('email')" class="mt-2" />
             </div>
@@ -62,7 +62,7 @@
             </jet-action-message>
 
             <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                保存
             </jet-button>
         </template>
     </jet-form-section>

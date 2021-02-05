@@ -20,17 +20,6 @@
                     <jet-section-border />
                 </div>
 
-                <div v-if="$page.jetstream.canManageTwoFactorAuthentication">
-                    <two-factor-authentication-form class="mt-10 sm:mt-0" />
-
-                    <jet-section-border />
-                </div>
-
-                <logout-other-browser-sessions-form :sessions="sessions" class="mt-10 sm:mt-0" />
-
-                <jet-section-border />
-
-                <delete-user-form class="mt-10 sm:mt-0" />
             </div>
         </div>
     </app-layout>
