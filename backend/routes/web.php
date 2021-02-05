@@ -13,9 +13,9 @@ use App\Http\Controllers\PostListController;
 use App\Http\Controllers\MyPostListController;
 // 社員一覧表示controller
 use App\Http\Controllers\UserListController;
-// 顧客一覧表示controller
+// 取引先一覧表示controller
 use App\Http\Controllers\ClientListController;
-// 顧客登録
+// 取引先登録
 use App\Http\Controllers\ClientCreateController;
 // 社員登録
 use App\Http\Controllers\EmployeeCreateController;

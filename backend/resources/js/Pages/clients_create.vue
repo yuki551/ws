@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                顧客登録
+                取引先登録
             </h2>
         </template>
         <div class="py-12">
@@ -23,11 +23,11 @@
                             <div class="">
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
-                                    顧客名:
+                                    取引先名:
                                     <input
                                         type="text"
                                         class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline"
-                                        placeholder="登録する顧客名を入力してください"
+                                        placeholder="登録する取引先名を入力してください"
                                         v-model="form.name"
                                     />
                                     </label>

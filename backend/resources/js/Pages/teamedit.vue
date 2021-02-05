@@ -27,7 +27,7 @@
                                     <input
                                         type="text"
                                         class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline"
-                                        placeholder="登録する顧客名を入力してください"
+                                        placeholder="登録する取引先名を入力してください"
                                         v-model="form.name"
                                     />
                                     </label>

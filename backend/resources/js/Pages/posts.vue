@@ -72,9 +72,9 @@
                                 <div class="mt-4 block text-gray-700 text-sm font-bold mb-2">業務報告(午前):</div>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
-                                        顧客名:
+                                        取引先名:
                                         <select v-model="form.client_am">
-                                            <option disabled value="">顧客を選択してください</option>
+                                            <option disabled value="">取引先を選択してください</option>
                                             <option v-for="client in client_am"
                                                 v-bind:value="client.id">
                                                 {{ client.name }}
@@ -116,9 +116,9 @@
                                 <div class="mt-4 block text-gray-700 text-sm font-bold mb-2">業務報告(午後):</div>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
-                                        顧客名:
+                                        取引先名:
                                         <select v-model="form.client_pm">
-                                            <option disabled value="">顧客を選択してください</option>
+                                            <option disabled value="">取引先を選択してください</option>
                                             <option v-for="client in client_pm"
                                                 v-bind:value="client.id">
                                                 {{ client.name }}
