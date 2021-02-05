@@ -24,9 +24,6 @@ use App\Http\Controllers\EmployeeEditController;
 use App\Http\Controllers\UserController;
 // use App\Http\Controllers\UserConfirmController;
 
-// 部署
-use App\Http\Controllers\TeamListController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,28 +88,12 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])
     ->name('user.edit');
 Route::put('/users/{user}', [UserController::class, 'update'])
     ->name('user.update');
-Route::get('/users/{user}', [UserController::class, 'show'])
-    ->name('user.show');
+
 Route::delete('/users/{user}', [UserController::class, 'destroy'])
     ->name('user.destroy');
 Route::post('/users/confirm', [UserController::class, 'confirm'])
     ->name('user.confirm');
-
-
-
-Route::get('/teamlists', [TeamListController::class, 'index'])
-    ->name('teamlist.index');
-Route::get('/teamlists/create', [TeamListController::class, 'create'])
-    ->name('teamlist.create');
-Route::post('/teamlists', [TeamListController::class, 'store'])
-    ->name('teamlist.store');
-Route::get('/teamlists/{teamlist}/edit', [TeamListController::class, 'edit'])
-    ->name('teamlist.edit');
-Route::put('/teamlists/{teamlist}', [TeamListController::class, 'update'])
-    ->name('teamlist.update');
-Route::get('/teamlists/{teamlist}', [TeamListController::class, 'show'])
-    ->name('teamlist.show');
-Route::delete('/teamlists/{teamlist}', [TeamListController::class, 'destroy'])
-    ->name('teamlist.destroy');
-Route::post('/teamlists/confirm', [TeamListController::class, 'confirm'])
-    ->name('teamlist.confirm');
+Route::get('/users/confirm', [UserController::class, 'getconfirm'])
+    ->name('user.getconfirm');
+Route::get('/users/{user}', [UserController::class, 'show'])
+    ->name('user.show');

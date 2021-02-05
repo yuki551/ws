@@ -24,7 +24,7 @@ class UserController extends Controller
         $data = User::select(
             'users.*',
             'teams.name as team_name',
-            'roles.name as role_name') 
+            'roles.name as role_name')
             ->join('teams', 'users.current_team_id', '=', 'teams.id')
             ->join('roles', 'users.role_id', '=', 'roles.role_id')
             ->where('users.role_id', '>=', 3)
@@ -32,12 +32,12 @@ class UserController extends Controller
             ->orderBy('users.role_id', 'asc')
             ->get();
 
-        
+
 
         $data2 = Team::all();
 
         $conf = config('setting.status');
-        
+
 
         return Inertia::render('User/Index', ['data' => $data, 'data2' => $data2, 'conf' => $conf]);
     }
@@ -47,7 +47,7 @@ class UserController extends Controller
     /**
      * create
      * 社員登録
-     * 
+     *
      */
     public function create(){
 
@@ -81,7 +81,7 @@ class UserController extends Controller
                 'password' => session()->get('password'),
                 'current_team_id' => session()->get('current_team_id'),
                 'role_id' => session()->get('role_id'),
-                'auth_id' => session()->get('auth_id'),  
+                'auth_id' => session()->get('auth_id'),
                 'team_name' => $team->name,
                 'role_name' => $role->name,
                 'auth_name' => $auth_name,
@@ -95,7 +95,7 @@ class UserController extends Controller
 
             return Inertia::render('User/Confirm', ['confirmuser' => $confirmuser]);
 
-        }else{ 
+        }else{
             // 初期orバリデーション等で帰った場合：フォーム表示
 
             // validation時のフォーム再入力用データ
@@ -108,33 +108,33 @@ class UserController extends Controller
                 'oldrole' => "10",
                 'oldauth' => "0",
             ];
-        
+
 
 
             session()->forget(['confirm', 'id', 'name', 'email', 'password', 'current_team_id', 'role_id', 'auth_id']);
 
             if ($user['auth_id'] == 1) {
-                
+
                 return Inertia::render('User/Create', ['data' => $data, 'dataTeam' => $dataTeam,'dataRole' => $dataRole]);
             } else {
                 return redirect('/users')->with('message', '現在の権限では社員登録にはアクセスできません。');
             }
-        }    
-    
+        }
+
     }
 
 
     /**
      * edit
      * 社員編集
-     * 
+     *
      */
     public function edit($id){
 
         $auth = Auth::user();
 
 
-        
+
         $flag = session()->get('confirm');
         session()->forget('confirm');
 
@@ -157,7 +157,7 @@ class UserController extends Controller
                 'email' => session()->get('email'),
                 'current_team_id' => session()->get('current_team_id'),
                 'role_id' => session()->get('role_id'),
-                'auth_id' => session()->get('auth_id'),  
+                'auth_id' => session()->get('auth_id'),
                 'team_name' => $team_name->name,
                 'role_name' => $role_name->name,
                 'auth_name' => $auth_name,
@@ -169,7 +169,7 @@ class UserController extends Controller
 
             return Inertia::render('User/Confirm', ['confirmuser' => $confirmuser]);
 
-        }else{ 
+        }else{
             session()->forget(['confirm', 'id', 'name', 'email', 'password', 'current_team_id', 'role_id', 'auth_id']);
 
             if ($auth['auth_id'] == 1) {
@@ -178,11 +178,11 @@ class UserController extends Controller
                 $dataRole = Role::all();
                 $user = User::find($id);
                 $data = [
-                    'id' => $user->id, 
+                    'id' => $user->id,
                     'name' => $user->name,
-                    'email' => $user->email, 
-                    // 'password' => $user->password, 
-                    'current_team_id' => $user->current_team_id, 
+                    'email' => $user->email,
+                    // 'password' => $user->password,
+                    'current_team_id' => $user->current_team_id,
                     'role_id' => $user->role_id,
                     'auth_id' => $user->auth_id,
                 ];
@@ -190,7 +190,7 @@ class UserController extends Controller
             } else {
                 return redirect('/users')->with('message', '現在の権限では社員編集にはアクセスできません。');
             }
-        }    
+        }
     }
 
 
@@ -209,10 +209,10 @@ class UserController extends Controller
 
 
         $data = [
-            'id' => $user->id, 
+            'id' => $user->id,
             'name' => $user->name,
-            'email' => $user->email, 
-            // 'password' => $user->password, 
+            'email' => $user->email,
+            // 'password' => $user->password,
             'current_team_id' => $user->current_team_id,
             'team_name' => $team_name,
             'role_id' => $user->role_id,
@@ -235,7 +235,7 @@ class UserController extends Controller
 
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -258,12 +258,12 @@ class UserController extends Controller
         $user = new User();
         $newpass = Hash::make($request->password);
 
-        
+
         $user->create([
             'name' => $request->name,
-            'email' => $request->email, 
-            'password' => $newpass, 
-            'current_team_id' => $request->current_team_id, 
+            'email' => $request->email,
+            'password' => $newpass,
+            'current_team_id' => $request->current_team_id,
             'role_id' => $request->role_id,
             'auth_id' => $request->auth_id,
         ]);
@@ -277,14 +277,14 @@ class UserController extends Controller
     public function update(Request $request)
     {
         Validator::make($request->all(), [
-            
+
             'name' => ['required'],
             'email' => ['required'],
             // 'password' => ['required'],
             'current_team_id' => ['required'],
             'role_id' => ['required'],
             'auth_id' => ['required'],
-            
+
         ])->validate();
 
         $user = new User();
@@ -292,9 +292,9 @@ class UserController extends Controller
 
         $data = [
             'name' => $request->name,
-            'email' => $request->email, 
-            // 'password' => $request->password, 
-            'current_team_id' => $request->current_team_id, 
+            'email' => $request->email,
+            // 'password' => $request->password,
+            'current_team_id' => $request->current_team_id,
             'role_id' => $request->role_id,
             'auth_id' => $request->auth_id,
         ];
@@ -312,7 +312,7 @@ class UserController extends Controller
 
         $dataTeam = Team::all();
         $dataRole = Role::all();
-        
+
         if($request->confirm == 1){
 
             // バリデーションルール
@@ -328,7 +328,7 @@ class UserController extends Controller
                 'current_team_id.required' => '所属部署を選択してください。',
             ],
         );
-        
+
             // バリデーションエラーだった場合
             if ($validator->fails()) {
                 session()->forget('confirm');
@@ -367,7 +367,7 @@ class UserController extends Controller
                 'current_team_id.required' => '所属部署を選択してください。',
             ],
             );
-        
+
             // バリデーションエラーだった場合
             if ($validator->fails()) {
                 session()->forget('confirm');
@@ -384,11 +384,11 @@ class UserController extends Controller
             $request->session()->put('role_id' , $request->role_id);
             $request->session()->put('auth_id' , $request->auth_id);
             $data = [
-                'id' => $request->id, 
+                'id' => $request->id,
                 'name' => $request->name,
-                'email' => $request->email, 
-                // 'password' => $request->password, 
-                'current_team_id' => $request->current_team_id, 
+                'email' => $request->email,
+                // 'password' => $request->password,
+                'current_team_id' => $request->current_team_id,
                 'role_id' => $request->role_id,
                 'auth_id' => $request->auth_id,
 
@@ -402,7 +402,11 @@ class UserController extends Controller
             return redirect()->route('user.index')
             ->with('message', 'なんらかのエラー');
         }
-        
+
+    }
+
+    public function getconfirm(){
+        return redirect()->route('user.create');
     }
 
 }

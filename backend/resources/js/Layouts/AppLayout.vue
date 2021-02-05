@@ -127,10 +127,6 @@
                                         取引先一覧
                                     </jet-dropdown-link>
 
-                                    <jet-dropdown-link :href="route('teamlist.index')">
-                                        部署一覧
-                                    </jet-dropdown-link>
-
 
                                     <!-- Authentication -->
                                     <form @submit.prevent="logout">
