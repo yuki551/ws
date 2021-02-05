@@ -6,17 +6,17 @@
                 Dashboard
             </h2>
         </template>
-        <div v-if="notifyTask" class="bg-blue-400 shadow">
-            <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    未承認の日報があります。
-                </h2>
-            </div>
-        </div>
         <div v-if="notifyReply" class="bg-red-400 shadow">
             <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     差戻しの日報があります。
+                </h2>
+            </div>
+        </div>
+        <div v-if="notifyTask" class="bg-blue-400 shadow">
+            <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    未承認の日報があります。
                 </h2>
             </div>
         </div>
