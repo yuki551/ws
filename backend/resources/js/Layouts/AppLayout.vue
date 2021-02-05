@@ -111,26 +111,25 @@
                                         Management
                                     </div>
 
-                                    <jet-dropdown-link :href="route('teamlist.index')">
-                                        部署一覧
+                                    <jet-dropdown-link :href="route('user.create')" v-if="$page.user.auth_id == 1">
+                                        社員登録
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link :href="route('user.index')">
                                         社員一覧
                                     </jet-dropdown-link>
 
-                                    <jet-dropdown-link :href="route('user.create')" v-if="$page.user.auth_id == 1">
-                                        社員登録
+                                    <jet-dropdown-link :href="route('clients_create.index')" v-if="$page.user.current_team_id == 3 || $page.user.current_team_id == 4">
+                                        取引先登録
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link :href="route('clientlists.index')">
                                         取引先一覧
                                     </jet-dropdown-link>
 
-                                    <jet-dropdown-link :href="route('clients_create.index')" v-if="$page.user.current_team_id == 3 || $page.user.current_team_id == 4">
-                                        取引先登録
+                                    <jet-dropdown-link :href="route('teamlist.index')">
+                                        部署一覧
                                     </jet-dropdown-link>
-
 
 
                                     <!-- Authentication -->
