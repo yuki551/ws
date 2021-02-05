@@ -3,7 +3,7 @@
         <!-- {{ usrPosNull }} -->
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
+                ホーム
             </h2>
         </template>
         <div v-if="notifyReply" class="bg-red-400 shadow">
