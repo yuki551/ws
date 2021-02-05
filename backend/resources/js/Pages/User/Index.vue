@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
+                社員一覧
             </h2>
         </template>
         <div class="py-12">
@@ -29,7 +29,7 @@
                             <jet-button class="bg-blue-700 text-base">Userを作成</jet-button>
                             </a>
                         </div>
-                    
+
                         <h2 v-for="row in userPosts11">{{row.name}}</h2>
 
                         <table class="table-fixed w-full">
@@ -37,7 +37,6 @@
                                 <tr class="bg-gray-100">
                                     <th class="px-4 py-2 w-2/12">編集</th>
                                     <th class="px-4 py-2 w-2/12">削除</th>
-                                    <th class="px-4 py-2 w-1/12">社員ID</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
                                 </tr>
@@ -51,8 +50,8 @@
                                             </a>
                                         </div>
                                     </td>
-                                                            
-                                    <td class="border px-4 py-2"> 
+
+                                    <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.show', row.id)">
                                             <jet-button class="bg-red-700 text-base"
@@ -61,9 +60,8 @@
                                         </div>
                                     </td>
 
-                                    
-                                    
-                                    <td class="border px-4 py-2">{{ row.id }}</td>
+
+
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
@@ -76,7 +74,6 @@
                                 <tr class="bg-gray-100">
                                     <th class="px-4 py-2 w-2/12">編集</th>
                                     <th class="px-4 py-2 w-2/12">削除</th>
-                                    <th class="px-4 py-2 w-1/12">社員ID</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
                                 </tr>
@@ -90,7 +87,7 @@
                                             </a>
                                         </div>
                                     </td>
-                                    <td class="border px-4 py-2"> 
+                                    <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.show', row.id)">
                                             <jet-button class="bg-red-700 text-base"
@@ -98,7 +95,6 @@
                                             </a>
                                         </div>
                                     </td>
-                                    <td class="border px-4 py-2">{{ row.id }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
@@ -111,7 +107,6 @@
                                 <tr class="bg-gray-100">
                                     <th class="px-4 py-2 w-2/12">編集</th>
                                     <th class="px-4 py-2 w-2/12">削除</th>
-                                    <th class="px-4 py-2 w-1/12">社員ID</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
                                 </tr>
@@ -125,7 +120,7 @@
                                             </a>
                                         </div>
                                     </td>
-                                    <td class="border px-4 py-2"> 
+                                    <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.show', row.id)">
                                             <jet-button class="bg-red-700 text-base"
@@ -133,7 +128,6 @@
                                             </a>
                                         </div>
                                     </td>
-                                    <td class="border px-4 py-2">{{ row.id }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
@@ -146,7 +140,6 @@
                                 <tr class="bg-gray-100">
                                     <th class="px-4 py-2 w-2/12">編集</th>
                                     <th class="px-4 py-2 w-2/12">削除</th>
-                                    <th class="px-4 py-2 w-1/12">社員ID</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
                                 </tr>
@@ -160,7 +153,7 @@
                                             </a>
                                         </div>
                                                     </td>
-                                                    <td class="border px-4 py-2"> 
+                                                    <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.show', row.id)">
                                             <jet-button class="bg-red-700 text-base"
@@ -168,7 +161,6 @@
                                             </a>
                                         </div>
                                         </td>
-                                    <td class="border px-4 py-2">{{ row.id }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
@@ -182,7 +174,6 @@
                                 <tr class="bg-gray-100">
                                     <th class="px-4 py-2 w-2/12">編集</th>
                                     <th class="px-4 py-2 w-2/12">削除</th>
-                                    <th class="px-4 py-2 w-1/12">社員ID</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
                                 </tr>
@@ -196,7 +187,7 @@
                                             </a>
                                         </div>
                                                     </td>
-                                                    <td class="border px-4 py-2"> 
+                                                    <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.show', row.id)">
                                             <jet-button class="bg-red-700 text-base"
@@ -204,7 +195,6 @@
                                             </a>
                                         </div>
                                         </td>
-                                    <td class="border px-4 py-2">{{ row.id }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
@@ -459,7 +449,7 @@ export default {
         userPosts11: function() {
             this.userPost = [];
             for (let i = 0; i < this.data2.length; i++) {
-                
+
                 if (this.data2[i].id == 1) {
                     this.userPost.push(this.data2[i]);
                 }
@@ -561,7 +551,7 @@ export default {
         //     this.reset();
         //     this.editMode = false;
         // },
- 
+
 
 
         deleteUser(id){

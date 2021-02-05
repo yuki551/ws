@@ -28,7 +28,7 @@ class RolesTableSeeder extends Seeder
                 'role_id' => 5,
             ],
             [
-                'name' => '一般社員',
+                'name' => '一般',
                 'role_id' => 10,
             ]
         ]);
