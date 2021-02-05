@@ -363,13 +363,12 @@ button:focus {
                 margin: 20px 0 10px;
                 border-top: 1px solid $c-border;
             }
-        }
 
-        &-client {
             select {
                 border-bottom: 2px solid #cecece;
             }
         }
+
 
         &-contents {
             font-weight: normal;

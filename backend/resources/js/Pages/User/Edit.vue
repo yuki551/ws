@@ -21,28 +21,11 @@
                             </div>
                         </div>
                     </div>
-                    <form>
+                    <form class="cmn-form-wrap">
                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                            <div class="">
-
-
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2">
-                                    ID:{{ form.id }}
-                                    <input
-                                        type="hidden"
-                                        class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline"
-                                        placeholder="社員名を入力してください"
-                                        v-model="form.id"
-                                    />
-                                    </label>
-                                    <div v-if="$page.errors.id" class="text-red-500">
-                                        {{ $page.errors.id[0] }}
-                                    </div>
-                                </div>
-
-
-                                <div class="mb-4">
+                            <div class="form-inner">
+                                <input type="hidden" v-model="form.id"/>
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     社員名:
                                     <input
@@ -57,7 +40,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     メールアドレス:
                                     <input
@@ -73,7 +56,7 @@
                                 </div>
 
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     所属部署:
                                         <select v-model="form.current_team_id">
@@ -89,7 +72,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     役職:
                                         <select v-model="form.role_id">
@@ -105,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     管理者権限:
                                         <select v-model="form.auth_id">
@@ -130,14 +113,14 @@
                             </div>
                         </div>
                         <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                            
+
 
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    
+
                                     <jet-button class="bg-green-700 text-base"
                                     @click.native="confirm(form)">更新</jet-button>
                                 </span>
-                            
+
                         </div>
                     </form>
                 </div>

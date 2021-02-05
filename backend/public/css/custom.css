@@ -395,7 +395,7 @@ button:focus {
   border-top: 1px solid #d2d6dc;
 }
 
-.cmn-form-wrap .form-client select {
+.cmn-form-wrap .form-item select {
   border-bottom: 2px solid #cecece;
 }
 
@@ -434,3 +434,4 @@ button:focus {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(0%, #fffec1));
   background: linear-gradient(transparent 60%, #fffec1 0%);
 }
+/*# sourceMappingURL=custom.css.map */

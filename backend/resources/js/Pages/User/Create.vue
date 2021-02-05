@@ -19,10 +19,10 @@
                             </div>
                         </div>
                     </div>
-                    <form>
+                    <form class="cmn-form-wrap">
                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                            <div class="">
-                                <div class="mb-4">
+                            <div class="form-inner">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     社員名:
                                     <input
@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     メールアドレス:
                                     <input
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     パスワード:
                                     <input
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     所属部署:
                                         <select v-model="form.current_team_id">
@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     役職:
                                         <select v-model="form.role_id">
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="form-item mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     管理者権限:
                                         <select v-model="form.auth_id">
