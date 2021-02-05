@@ -5,7 +5,7 @@
                 社員一覧
             </h2>
         </template>
-        <div class="py-12">
+        <div class="py-12 user-list-wrap">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
                     <div
@@ -20,29 +20,29 @@
                         </div>
                     </div>
 
+                    <div class="btn-create-user" v-if="this.$page.user.auth_id == 1">
+                        <a class="action-btn" :href="route('user.create')">
+                        <jet-button class="text-base">Userを作成</jet-button>
+                        </a>
+                    </div>
 
-<!-- ***************************** -->
+                    <!-- ***************************** -->
                     <div v-if="this.$page.user.auth_id == 1">
 
-                        <div>
-                            <a :href="route('user.create')">
-                            <jet-button class="bg-blue-700 text-base">Userを作成</jet-button>
-                            </a>
-                        </div>
-
-                        <h2 v-for="row in userPosts11">{{row.name}}</h2>
-
+                        <h2 class="team-title" v-for="row in userPosts11">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
+                                    <th class="px-4 py-2 w-2/12">編集</th>
+                                    <th class="px-4 py-2 w-2/12">削除</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts1">
+                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
+                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                     <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.edit',row.id)">
@@ -59,27 +59,24 @@
                                             </a>
                                         </div>
                                     </td>
-
-
-
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts12">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts12">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
+                                    <th class="px-4 py-2 w-2/12">編集</th>
+                                    <th class="px-4 py-2 w-2/12">削除</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts2">
+                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
+                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                     <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.edit', row.id)">
@@ -95,24 +92,24 @@
                                             </a>
                                         </div>
                                     </td>
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts13">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts13">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
+                                    <th class="px-4 py-2 w-2/12">編集</th>
+                                    <th class="px-4 py-2 w-2/12">削除</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts3">
+                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
+                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                     <td class="border px-4 py-2">
                                         <div>
                                             <a :href="route('user.edit', row.id)">
@@ -128,24 +125,24 @@
                                             </a>
                                         </div>
                                     </td>
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts14">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts14">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
+                                    <th class="px-4 py-2 w-2/12">編集</th>
+                                    <th class="px-4 py-2 w-2/12">削除</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts4">
+                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
+                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                     <td class="border px-4 py-2">
                                         <div>
                                         <a :href="route('user.edit', row.id)">
@@ -160,26 +157,25 @@
                                             >削除</jet-button>
                                             </a>
                                         </div>
-                                        </td>
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts15">{{row.name}}</h2>
-
+                        <h2 class="team-title" v-for="row in userPosts15">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
                                     <th class="px-4 py-2 w-2/12">役職</th>
                                     <th class="px-4 py-2 w-5/12">名前</th>
+                                    <th class="px-4 py-2 w-2/12">編集</th>
+                                    <th class="px-4 py-2 w-2/12">削除</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts5">
+                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
+                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                     <td class="border px-4 py-2">
                                         <div>
                                         <a :href="route('user.edit', row.id)">
@@ -195,8 +191,6 @@
                                             </a>
                                         </div>
                                         </td>
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -206,93 +200,81 @@
                     <!-- ************************************************* -->
 
                     <div v-else>
-                        <h2 v-for="row in userPosts11">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts11">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-20">作成日</th>
                                     <th class="px-4 py-2">役職</th>
                                     <th class="px-4 py-2">名前</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts1">
-                                    <td class="border px-4 py-2">{{ row.created_at | moment("YYYY年MM月DD日") }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts12">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts12">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-20">作成日</th>
                                     <th class="px-4 py-2">役職</th>
                                     <th class="px-4 py-2">名前</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts2">
-                                    <td class="border px-4 py-2">
-                                        {{ row.created_at | moment("YYYY年MM月DD日") }}
-                                    </td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts13">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts13">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-20">作成日</th>
                                     <th class="px-4 py-2">役職</th>
                                     <th class="px-4 py-2">名前</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts3">
-                                    <td class="border px-4 py-2">{{ row.created_at | moment("YYYY年MM月DD日") }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts14">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts14">{{row.name}}</h2>
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-20">作成日</th>
                                     <th class="px-4 py-2">役職</th>
                                     <th class="px-4 py-2">名前</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts4">
-                                    <td class="border px-4 py-2">{{ row.created_at | moment("YYYY年MM月DD日") }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h2 v-for="row in userPosts15">{{row.name}}</h2>
+                        <h2 class="team-title" v-for="row in userPosts15">{{row.name}}</h2>
 
                         <table class="table-fixed w-full">
                             <thead>
                                 <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-20">作成日</th>
                                     <th class="px-4 py-2">役職</th>
                                     <th class="px-4 py-2">名前</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in userPosts5">
-                                    <td class="border px-4 py-2">{{ row.created_at | moment("YYYY年MM月DD日") }}</td>
                                     <td class="border px-4 py-2">{{ row.role_name }}</td>
                                     <td class="border px-4 py-2">{{ row.name }}</td>
                                 </tr>
@@ -424,7 +406,6 @@ export default {
         };
     },
     computed: {
-
         userPosts0: function(){
             this.userPost = [];
             this.userPost2 = [];
@@ -543,16 +524,6 @@ export default {
 
     },
     methods: {
-        // openModal: function() {
-        //     this.isOpen = true;
-        // },
-        // closeModal: function() {
-        //     this.isOpen = false;
-        //     this.reset();
-        //     this.editMode = false;
-        // },
-
-
 
         deleteUser(id){
 

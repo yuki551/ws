@@ -22,22 +22,7 @@
                     <form>
                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div class="">
-
-                                    <div class="mb-4">
-                                        <label class="block text-gray-700 text-sm font-bold mb-2">
-                                        ID:{{ form.id }}
-                                        <input
-                                            type="hidden"
-                                            class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline"
-                                            placeholder="社員名を入力してください"
-                                            v-model="form.id"
-                                        />
-                                        </label>
-                                        <div v-if="$page.errors.title" class="text-red-500">
-                                            {{ $page.errors.id[0] }}
-                                        </div>
-                                    </div>
-
+                                <input type="hidden" v-model="form.id"/>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
                                     社員名:{{form.name}}
@@ -186,7 +171,7 @@ export default {
     computed: {
         // ログインしているユーザーの投稿のみデータを格納。
         teams: function() {
-            
+
             return this.dataTeam;
         },
         roles: function() {

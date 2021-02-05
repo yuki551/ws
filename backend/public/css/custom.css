@@ -318,12 +318,14 @@ button:focus {
   color: #fff;
 }
 
+.action-btn.btn-main,
 .action-btn.detail-modal button,
 .action-btn.approval button {
   border: 2px solid #1AAD8F;
   color: #1AAD8F;
 }
 
+.action-btn.btn-main:hover,
 .action-btn.detail-modal button:hover,
 .action-btn.approval button:hover {
   background: #1AAD8F;
@@ -428,6 +430,38 @@ button:focus {
 
 .modal-form-wrap .form-remand textarea {
   height: 300px;
+}
+
+.user-list-wrap .team-title {
+  margin-top: 20px;
+  background: #F4FAF9;
+  color: #1AAD8F;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: 1px solid #d2d6dc;
+}
+
+.user-list-wrap .table-fixed th {
+  border-left: 1px solid #d2d6dc;
+}
+
+.user-list-wrap .table-fixed th:last-child {
+  border-right: 1px solid #d2d6dc;
+}
+
+.user-list-wrap .table-fixed td:nth-child(3), .user-list-wrap .table-fixed td:nth-child(4) {
+  text-align: center;
+}
+
+.user-list-wrap .btn-create-user button {
+  border: 2px solid #1AAD8F;
+  color: #fff;
+  background: #1AAD8F;
+}
+
+.user-list-wrap .btn-create-user button:hover {
+  background: #1AAD8F;
+  color: #fff;
 }
 
 .marker {

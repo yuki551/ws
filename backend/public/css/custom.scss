@@ -288,6 +288,7 @@ button:focus {
             }
         }
 
+        &.btn-main,
         &.detail-modal button,
         &.approval button {
             border: 2px solid $c-main;
@@ -407,6 +408,45 @@ button:focus {
     }
 }
 
+.user-list-wrap {
+    .team-title {
+        margin-top: 20px;
+        background: $c-mainbg;
+        color: $c-main;
+        padding: 10px 20px;
+        font-weight: bold;
+        border: 1px solid $c-border;
+    }
+
+    .table-fixed {
+        th {
+            border-left: 1px solid $c-border;
+
+            &:last-child {
+                border-right: 1px solid $c-border;
+            }
+        }
+
+        td {
+
+            &:nth-child(3),
+            &:nth-child(4) {
+                text-align: center;
+            }
+        }
+    }
+
+    .btn-create-user button {
+        border: 2px solid $c-main;
+        color: #fff;
+        background: #1AAD8F;
+
+        &:hover {
+            background: $c-main;
+            color: #fff;
+        }
+    }
+}
 
 .marker {
     background: linear-gradient(transparent 60%, #fffec1 0%);

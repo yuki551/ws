@@ -24,20 +24,7 @@
                             <div class="">
 
                                 <div v-if="form.confirm == 2">
-                                    <div class="mb-4">
-                                        <label class="block text-gray-700 text-sm font-bold mb-2">
-                                        ID:{{ form.id }}
-                                        <input
-                                            type="hidden"
-                                            class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline"
-                                            placeholder="社員名を入力してください"
-                                            v-model="form.id"
-                                        />
-                                        </label>
-                                        <div v-if="$page.errors.title" class="text-red-500">
-                                            {{ $page.errors.id[0] }}
-                                        </div>
-                                    </div>
+                                    <input type="hidden" v-model="form.id"/>
                                 </div>
 
                                 <div class="mb-4">
