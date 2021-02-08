@@ -19,9 +19,9 @@
                             </div>
                         </div>
                     </div>
-                    <form>
+                    <form class="cmn-form-wrap">
                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                            <div class="">
+                            <div class="form-inner">
 
                                 <div v-if="form.confirm == 2">
                                     <input type="hidden" v-model="form.id"/>
@@ -122,6 +122,12 @@
                                     </div>
                                 </div>
 
+                                    <input
+                                        type="hidden"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        v-model="form.back"
+                                    />
+
                             </div>
                         </div>
 
@@ -130,10 +136,19 @@
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                                     <button
                                         wire:click.prevent="store()"
-                                        class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                                        class="cmn-formbtn cmn-formbtn-main"
                                         v-show="!editMode"
                                         @click="save(form)">
                                         登録
+                                    </button>
+                                </span>
+                                <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                    <button
+                                        wire:click.prevent="store()"
+                                        class="cmn-formbtn cmn-formbtn-back"
+                                        v-show="!editMode"
+                                        @click="back(form)">
+                                        戻る
                                     </button>
                                 </span>
                             </div>
@@ -196,6 +211,7 @@ export default {
                 auth_id: this.confirmuser.auth_id,
                 auth: this.confirmuser.auth_name,
                 confirm: this.confirmuser.confirm,
+                back: false,
             },
             ),
             authItem: [
@@ -222,6 +238,18 @@ export default {
             data._method = "POST";
             this.$inertia.post('/users', data);
             this.reset();
+        },
+
+        back: function(data) {
+            data._method = "POST";
+            data['back'] = true;
+            this.$inertia.post('/users', data);
+        },
+
+        confirm(data){
+            data._method = 'POST';
+            this.data.confirm = 3;
+            this.form.post(route('user.confirm'));
         },
 
         edit: function(data) {

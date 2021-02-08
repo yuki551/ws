@@ -38,7 +38,6 @@ class UserController extends Controller
 
         $conf = config('setting.status');
 
-
         return Inertia::render('User/Index', ['data' => $data, 'data2' => $data2, 'conf' => $conf]);
     }
 
@@ -57,12 +56,9 @@ class UserController extends Controller
         $user = Auth::user();
 
         $flag = session()->get('confirm');
-        session()->forget('confirm');
 
         if($flag==1){
             // 一度confirmを通った場合：確認画面表示
-
-
 
             $team = Team::find(session()->get('current_team_id'));
             $role = Role::where('role_id', '=', session()->get('role_id'))->first();
@@ -99,6 +95,27 @@ class UserController extends Controller
             // 初期orバリデーション等で帰った場合：フォーム表示
 
             // validation時のフォーム再入力用データ
+            $back = session()->get('back');
+            if($back){
+                $data = [
+                    'oldname' => session()->get('name'),
+                    'oldemail' => session()->get('email'),
+                    'oldpassword' => session()->get('password'),
+                    'oldteam' => session()->get('current_team_id'),
+                    'oldrole' => session()->get('role_id'),
+                    'oldauth' => session()->get('auth_id'),
+                ];
+
+
+                session()->forget(['confirm', 'id', 'name', 'email', 'password', 'current_team_id', 'role_id', 'auth_id', 'back']);
+
+                if ($user['auth_id'] == 1) {
+                    return Inertia::render('User/Create', ['data' => $data, 'dataTeam' => $dataTeam,'dataRole' => $dataRole]);
+                } else {
+                    return redirect('/users')->with('message', '現在の権限では社員登録にはアクセスできません。');
+                }
+
+            }
 
             $data = [
                 'oldname' => old('name'),
@@ -108,7 +125,6 @@ class UserController extends Controller
                 'oldrole' => "10",
                 'oldauth' => "0",
             ];
-
 
 
             session()->forget(['confirm', 'id', 'name', 'email', 'password', 'current_team_id', 'role_id', 'auth_id']);
@@ -237,41 +253,53 @@ class UserController extends Controller
 
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
     public function store(Request $request)
     {
-        Validator::make($request->all(), [
-            'name' => ['required'],
-            'email' => ['required'],
-            'password' => ['required'],
-            'current_team_id' => ['required'],
-            'role_id' => ['required'],
-            'auth_id' => ['required'],
-        ])->validate();
+        if ($request->back) {
+
+
+            $request->session()->put('back' , $request->back);
+            $request->session()->put('name' , $request->name);
+            $request->session()->put('email' , $request->email);
+            $request->session()->put('password' , $request->password);
+            $request->session()->put('current_team_id' , $request->current_team_id);
+            $request->session()->put('role_id' , $request->role_id);
+            $request->session()->put('auth_id' , $request->auth_id);
+
+            return Inertia::render('User/Create');
+
+        }else{
+            Validator::make($request->all(), [
+                'name' => ['required'],
+                'email' => ['required'],
+                'password' => ['required'],
+                'current_team_id' => ['required'],
+                'role_id' => ['required'],
+                'auth_id' => ['required'],
+            ])->validate();
 
 
 
-        $user = new User();
-        $newpass = Hash::make($request->password);
+            $user = new User();
+            $newpass = Hash::make($request->password);
 
 
-        $user->create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $newpass,
-            'current_team_id' => $request->current_team_id,
-            'role_id' => $request->role_id,
-            'auth_id' => $request->auth_id,
-        ]);
+            $user->create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $newpass,
+                'current_team_id' => $request->current_team_id,
+                'role_id' => $request->role_id,
+                'auth_id' => $request->auth_id,
+            ]);
 
-        $request->session()->forget(['confirm', 'name', 'email', 'password', 'current_team_id', 'role_id', 'auth_id']);
+            $request->session()->forget(['confirm', 'name', 'email', 'password', 'current_team_id', 'role_id', 'auth_id']);
 
-        return redirect()->route('user.index')
-                ->with('message', $request->name.'さんが登録されました。');
+            return redirect()->route('user.index')
+                    ->with('message', $request->name.'さんが登録されました。');
+        }
+
+
     }
 
     public function update(Request $request)

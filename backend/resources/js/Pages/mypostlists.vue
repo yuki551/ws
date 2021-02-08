@@ -155,7 +155,7 @@ export default {
             // paginate
             items: [],
             currentPage: 1,
-            perPage: 2,
+            perPage: 50,
         };
     },
     computed: {
