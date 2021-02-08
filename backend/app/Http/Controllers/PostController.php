@@ -201,7 +201,7 @@ class PostController extends Controller
 
         // Post::create($request->all());
 
-        return redirect('post.create')
+        return redirect('/posts/create')
             ->with('message', '日報を提出しました。');
 
 
