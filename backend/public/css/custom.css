@@ -346,6 +346,50 @@ button:focus {
   background: #fff;
 }
 
+@media only screen and (max-width: 960px) {
+  .page-postList .postslist-unapproved .postslist-hd {
+    display: none;
+  }
+  .page-postList .postslist-unapproved .postslist-body .postslist-item {
+    border-top: 3px solid #1AAD8F;
+  }
+  .page-postList .postslist-unapproved .postslist-body .postslist-item-hd {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .page-postList .postslist-unapproved .postslist-body .date {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .page-postList .postslist-unapproved .postslist-body .team {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .page-postList .postslist-unapproved .postslist-body .name {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .page-postList .postslist-unapproved .postslist-body .action {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+  .page-postList .postslist-unapproved .postslist-body .postslist-item-body {
+    -webkit-box-ordinal-group: 6;
+        -ms-flex-order: 5;
+            order: 5;
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+    border: none;
+    border-top: 1px solid #d2d6dc;
+  }
+}
+
 .action {
   padding: 15px 0;
   display: -webkit-box;

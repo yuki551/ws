@@ -316,6 +316,50 @@ button:focus {
     }
 }
 
+@include media(lg-under) {
+    .page-postList {
+        .postslist-unapproved {
+            .postslist-hd {
+                display: none;
+            }
+
+            .postslist-body {
+                .postslist-item {
+                    border-top: 3px solid #1AAD8F;
+                }
+
+                .postslist-item-hd {
+                    flex-wrap: wrap;
+                }
+
+                .date {
+                    order: 1;
+                }
+
+                .team {
+                    order: 2;
+                }
+
+                .name {
+                    order: 3;
+                }
+
+                .action {
+                    order: 4;
+                }
+
+                .postslist-item-body {
+                    order: 5;
+                    width: 100%;
+                    flex: auto;
+                    border: none;
+                    border-top: 1px solid $c-border;
+                }
+            }
+        }
+    }
+}
+
 
 .action {
     padding: 15px 0;

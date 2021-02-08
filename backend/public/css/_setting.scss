@@ -5,3 +5,24 @@ $c-border: #d2d6dc;
 $c-border2: #f2f2f2;
 $c-red: #f33;
 $c-blue: #3347ff;
+
+$breakpointList : 520px,
+960px,
+1000px,
+1366px;
+$breakpoints : (xs:"only screen and (max-width: #{nth($breakpointList,1)})",
+    md:"only screen and (min-width: #{nth($breakpointList,1)+1})",
+    md-lg:"only screen and (min-width: #{nth($breakpointList,1)+1}) and (max-width: #{nth($breakpointList,2)})",
+    lg-under:"only screen and (max-width: #{nth($breakpointList,2)})",
+    lg:"only screen and (min-width: #{nth($breakpointList,2)+1})",
+    lg-xl:"only screen and (min-width: #{nth($breakpointList,2)+1}) and (max-width: #{nth($breakpointList,3)})",
+    xl:"only screen and (min-width: #{nth($breakpointList,3)+1})",
+    xl-xll:"only screen and (min-width: #{nth($breakpointList,3)+1}) and (max-width: #{nth($breakpointList,4)})",
+    xll:"only screen and (min-width: #{nth($breakpointList,4)+1})"
+);
+
+@mixin media($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
