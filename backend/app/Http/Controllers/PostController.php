@@ -175,25 +175,31 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        //user id と team id が整合性取れる場合のみ入力できる様にしたい
+        Validator::make($request->all(), [
+            'user' => ['required'],
+            'team' => ['required'],
+            'summary_am' => ['required'],
+            'contents_am' => ['required'],
+            'summary_pm' => ['required'],
+            'contents_pm' => ['required'],
+        ])->validate();
 
-        // var_dump($request); をコメントアウト。02/02
 
-        // $post = new Post();
+        $post = new Post();
+        $post->create([
+            'user' => $request->user,
+            'team' => $request->team,
+            'date' => $request->date,
+            'client_am' => $request->client_am,
+            'summary_am' => $request->summary_am,
+            'contents_am' => $request->contents_am,
+            'client_pm' => $request->client_pm,
+            'summary_pm' => $request->summary_pm,
+            'contents_pm' => $request->contents_pm,
+            'status' => $request->status,
+        ]);
 
-        // $post->create([
-        //     'user' => $request->user,
-        //     'team' => $request->team,
-        //     'client_am' => $request->client_am,
-        //     'summary_am' => $request->summary_am,
-        //     'contents_am' => $request->contents_am,
-        //     'client_pm' => $request->client_pm,
-        //     'summary_pm' => $request->summary_pm,
-        //     'contents_pm' => $request->contents_pm,
-        //     'status' => $request->status,
-        // ]);
-
-        Post::create($request->all());
+        // Post::create($request->all());
 
         return redirect('post.create')
             ->with('message', '日報を提出しました。');
