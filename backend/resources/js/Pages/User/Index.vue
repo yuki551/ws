@@ -27,259 +27,50 @@
                     </div>
 
                     <!-- ***************************** -->
-                    <div v-if="this.$page.user.auth_id == 1">
 
-                        <h2 class="team-title" v-for="row in userPosts11">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">役職</th>
-                                    <th class="px-4 py-2 w-5/12">名前</th>
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts1">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.edit',row.id)">
-                                            <jet-button class="bg-blue-700 text-base">編集</jet-button>
-                                            </a>
-                                        </div>
-                                    </td>
+                        <div v-for="teamx in userteams">
+                            <h2 class="team-title">{{ teamx.team }}</h2>
 
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.show', row.id)">
-                                            <jet-button class="bg-red-700 text-base"
-                                            >削除</jet-button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <table class="table-fixed w-full">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="px-4 py-2 w-2/12">役職</th>
+                                        <th class="px-4 py-2 w-5/12">名前</th>
+                                        <template v-if="userauth">
+                                            <th class="px-4 py-2 w-2/12">編集</th>
+                                            <th class="px-4 py-2 w-2/12">削除</th>
+                                        </template>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="row in teamx.user">
+                                        <td class="border px-4 py-2">{{ row.role_name }}</td>
+                                        <td class="border px-4 py-2">{{ row.name }}</td>
+                                        <template v-if="userauth">
 
-                        <h2 class="team-title" v-for="row in userPosts12">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">役職</th>
-                                    <th class="px-4 py-2 w-5/12">名前</th>
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts2">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.edit', row.id)">
-                                            <jet-button class="bg-blue-700 text-base">編集</jet-button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.show', row.id)">
-                                            <jet-button class="bg-red-700 text-base"
-                                            >削除</jet-button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            <td class="border px-4 py-2">
+                                                <div>
+                                                    <a :href="route('user.edit',row.id)">
+                                                    <jet-button class="bg-blue-700 text-base">編集</jet-button>
+                                                    </a>
+                                                </div>
+                                            </td>
 
-                        <h2 class="team-title" v-for="row in userPosts13">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">役職</th>
-                                    <th class="px-4 py-2 w-5/12">名前</th>
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts3">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.edit', row.id)">
-                                                <jet-button class="bg-blue-700 text-base">編集</jet-button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.show', row.id)">
-                                            <jet-button class="bg-red-700 text-base"
-                                            >削除</jet-button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                            <td class="border px-4 py-2">
+                                                <div>
+                                                    <a :href="route('user.show', row.id)">
+                                                    <jet-button class="bg-red-700 text-base"
+                                                    >削除</jet-button>
+                                                    </a>
+                                                </div>
+                                            </td>
 
-                        <h2 class="team-title" v-for="row in userPosts14">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">役職</th>
-                                    <th class="px-4 py-2 w-5/12">名前</th>
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts4">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                        <a :href="route('user.edit', row.id)">
-                                            <jet-button class="bg-blue-700 text-base">編集</jet-button>
-                                            </a>
-                                        </div>
-                                                    </td>
-                                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.show', row.id)">
-                                            <jet-button class="bg-red-700 text-base"
-                                            >削除</jet-button>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </template>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <h2 class="team-title" v-for="row in userPosts15">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 w-2/12">役職</th>
-                                    <th class="px-4 py-2 w-5/12">名前</th>
-                                    <th class="px-4 py-2 w-2/12">編集</th>
-                                    <th class="px-4 py-2 w-2/12">削除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts5">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                    <td class="border px-4 py-2">
-                                        <div>
-                                        <a :href="route('user.edit', row.id)">
-                                            <jet-button class="bg-blue-700 text-base">編集</jet-button>
-                                            </a>
-                                        </div>
-                                                    </td>
-                                                    <td class="border px-4 py-2">
-                                        <div>
-                                            <a :href="route('user.show', row.id)">
-                                            <jet-button class="bg-red-700 text-base"
-                                            >削除</jet-button>
-                                            </a>
-                                        </div>
-                                        </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                    <!-- ************************************************* -->
-
-                    <div v-else>
-                        <h2 class="team-title" v-for="row in userPosts11">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2">役職</th>
-                                    <th class="px-4 py-2">名前</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts1">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 class="team-title" v-for="row in userPosts12">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2">役職</th>
-                                    <th class="px-4 py-2">名前</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts2">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 class="team-title" v-for="row in userPosts13">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2">役職</th>
-                                    <th class="px-4 py-2">名前</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts3">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 class="team-title" v-for="row in userPosts14">{{row.name}}</h2>
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2">役職</th>
-                                    <th class="px-4 py-2">名前</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts4">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 class="team-title" v-for="row in userPosts15">{{row.name}}</h2>
-
-                        <table class="table-fixed w-full">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2">役職</th>
-                                    <th class="px-4 py-2">名前</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="row in userPosts5">
-                                    <td class="border px-4 py-2">{{ row.role_name }}</td>
-                                    <td class="border px-4 py-2">{{ row.name }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
 
                     </div>
 
@@ -392,7 +183,7 @@ export default {
         JetLabel,
         JetButton,
         JetInputError,    },
-    props: ['data', 'data2', 'users', 'errors', 'conf'],
+    props: ['data', 'data2', 'errors', 'conf'],
     data() {
         return {
             editMode: false,
@@ -406,121 +197,32 @@ export default {
         };
     },
     computed: {
-        userPosts0: function(){
-            this.userPost = [];
-            this.userPost2 = [];
-            this.userPost3 = [];
 
-            for(let i = 1; i <= this.data2.length; i++){
-
+        userteams: function(){
+            this.alluser = [];
+            for(let i = 0; i < this.data2.length; i++){
+                this.userteam = [];
+                this.users = [];
                 for(let j = 0; j < this.data.length; j++){
-                    if (this.data[j].current_team_id == i) {
-                    this.userPost.push(this.data[j]);
+
+                    if (this.data[j].current_team_id == i+1) {
+                        this.users.push(this.data[j]);
                     }
                 }
-            this.userPost2.$set("id" , i);
-            this.userPost2.$set("users" , this.userPost);
-            this.userPost3.$set(i, this.userPost2);
-            this.userPost.splice(-this.userPost.length);
-            this.userPost2.splice(-this.userPost2.length);
+                this.userteam["team"] = this.data2[i].name;
+                this.userteam["user"] = this.users;
+                this.alluser.push(this.userteam);
             }
-            return this.userPost3;
+            return this.alluser;
         },
 
-        userPosts11: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data2.length; i++) {
-
-                if (this.data2[i].id == 1) {
-                    this.userPost.push(this.data2[i]);
-                }
+        userauth: function(){
+            if (this.$page.user.auth_id == 1) {
+                return true;
+            }else{
+                return false;
             }
-            return this.userPost;
         },
-        userPosts12: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data2.length; i++) {
-                if (this.data2[i].id == 2) {
-                    this.userPost.push(this.data2[i]);
-                }
-
-            }
-            return this.userPost;
-        },
-        userPosts13: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data2.length; i++) {
-                if (this.data2[i].id == 3) {
-                    this.userPost.push(this.data2[i]);
-                }
-            }
-            return this.userPost;
-        },
-        userPosts14: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data2.length; i++) {
-                if (this.data2[i].id == 4) {
-                    this.userPost.push(this.data2[i]);
-                }
-            }
-            return this.userPost;
-        },
-        userPosts15: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data2.length; i++) {
-                if (this.data2[i].id == 5) {
-                    this.userPost.push(this.data2[i]);
-                }
-            }
-            return this.userPost;
-        },
-
-        userPosts1: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data.length; i++) {
-                if (this.data[i].current_team_id == 1) {
-                    this.userPost.push(this.data[i]);
-                }
-            }
-            return this.userPost;
-        },
-        userPosts2: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data.length; i++) {
-                if (this.data[i].current_team_id == 2) {
-                    this.userPost.push(this.data[i]);
-                }
-            }
-            return this.userPost;
-        },
-        userPosts3: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data.length; i++) {
-                if (this.data[i].current_team_id == 3) {
-                    this.userPost.push(this.data[i]);
-                }
-            }
-            return this.userPost;
-        },
-        userPosts4: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data.length; i++) {
-                if (this.data[i].current_team_id == 4) {
-                    this.userPost.push(this.data[i]);
-                }
-            }
-            return this.userPost;
-        },
-        userPosts5: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data.length; i++) {
-                if (this.data[i].current_team_id == 5) {
-                    this.userPost.push(this.data[i]);
-                }
-            }
-            return this.userPost;
-        },
-
 
     },
     methods: {
