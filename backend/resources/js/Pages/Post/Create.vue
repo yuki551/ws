@@ -49,7 +49,7 @@
                                         <textarea class="cmn-form-textarea" v-model="form.summary_am" placeholder="例：打ち合わせ、会議"></textarea>
                                     </label>
                                     <!-- validation文表示 02/05 -->
-                                    <div v-if="$page.errors.summary_am" class="text-red-500">
+                                    <div v-if="$page.errors.summary_am" class="error-text text-red-500">
                                         {{ $page.errors.summary_am[0] }}
                                     </div>
                                 </div>
@@ -59,9 +59,7 @@
                                         <textarea class="cmn-form-textarea" v-model="form.contents_am" placeholder="業務詳細を記入してください"></textarea>
                                     </label>
                                     <!-- validation文表示 02/05 -->
-                                    <div v-if="$page.errors.contents_am" class="text-red-500">
-                                        {{ $page.errors.contents_am[0] }}
-                                    </div>
+                                    <div v-if="$page.errors.contents_am" class="error-text text-red-500">{{ $page.errors.contents_am[0] }}</div>
                                 </div>
 
 
@@ -84,7 +82,7 @@
                                         <textarea class="cmn-form-textarea" v-model="form.summary_pm" placeholder="例：打ち合わせ、会議"></textarea>
                                     </label>
                                     <!-- validation文表示 02/05 -->
-                                    <div v-if="$page.errors.summary_pm" class="text-red-500">
+                                    <div v-if="$page.errors.summary_pm" class="error-text text-red-500">
                                         {{ $page.errors.summary_pm[0] }}
                                     </div>
                                 </div>
@@ -94,9 +92,7 @@
                                         <textarea class="cmn-form-textarea" v-model="form.contents_pm" placeholder="業務詳細を記入してください"></textarea>
                                     </label>
                                     <!-- validation文表示 02/05 -->
-                                    <div v-if="$page.errors.contents_pm" class="text-red-500">
-                                        {{ $page.errors.contents_pm[0] }}
-                                    </div>
+                                    <div v-if="$page.errors.contents_pm" class="error-text text-red-500">{{ $page.errors.contents_pm[0] }}</div>
                                 </div>
                             </div>
                         </div>

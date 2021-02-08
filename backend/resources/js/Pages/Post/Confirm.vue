@@ -49,9 +49,11 @@
                                 <input type="hidden" v-model="form.status" />
                                 <input type="hidden" v-model="form.confirm" />
                                 <input type="hidden" v-model="form.message" />
+                                <input type="hidden" v-model="form.back" />
 
                             </div>
                         </div>
+
 
                         <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                             <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
@@ -62,6 +64,16 @@
                                     v-show="!editMode"
                                     @click="save(form)">
                                     登録
+                                </button>
+                            </span>
+                            <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                <!-- buttonのクリック時のメソッドを変更 02/02 -->
+                                <button
+                                    wire:click.prevent="store()"
+                                    class="cmn-formbtn cmn-formbtn-back"
+                                    v-show="!editMode"
+                                    @click="back(form)">
+                                    戻る
                                 </button>
                             </span>
                         </div>
@@ -113,6 +125,7 @@ export default {
                 status: 1,
                 confirm: 2,
                 message: "日報を提出しました。",
+                back: false,
             },
             ),
         };
@@ -135,6 +148,13 @@ export default {
         },
         save: function(data) {
             data._method = "POST";
+            this.$inertia.post('/posts', data);
+            this.reset();
+            this.editMode = false;
+        },
+        back: function(data) {
+            data._method = "POST";
+            data['back'] = true;
             this.$inertia.post('/posts', data);
             this.reset();
             this.editMode = false;

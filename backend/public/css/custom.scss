@@ -13,6 +13,12 @@ button:focus {
     font-size: 14px;
 }
 
+@media (min-width: 740px) {
+    .hd-item {
+        display: flex;
+    }
+}
+
 .nav-active {
     border-color: $c-main;
 }
@@ -461,6 +467,12 @@ button:focus {
         color: #fff;
     }
 
+    .cmn-formbtn-back {
+        background: #7d7d7d;
+        border: none;
+        color: #fff;
+    }
+
     .form {
         &-inner {
             font-size: 14px;
@@ -513,6 +525,10 @@ button:focus {
 
 .modal-form-wrap {
     max-width: 70%;
+
+    @include media(lg-under) {
+        max-width: 90%;
+    }
 
     .form-remand {
         textarea {
@@ -567,4 +583,9 @@ button:focus {
 
 .no-contents {
     color: $c-black;
+}
+
+.error-text {
+    font-weight: bold;
+    margin-bottom: 20px;
 }

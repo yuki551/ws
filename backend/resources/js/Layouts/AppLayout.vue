@@ -12,24 +12,24 @@
                             </inertia-link>
                         </div>
                         <!-- Navigation Links -->
-                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item">
                             <jet-nav-link href="/dashboard" :active="route().current('dashboard.index')">
                                 ホーム
                             </jet-nav-link>
                         </div>
 
-                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item">
                             <jet-nav-link v-if="$page.user.role_id != 3" href="/posts/create" :active="route().current('post.create')">
                                 日報登録
                             </jet-nav-link>
                         </div>
 
-                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item">
                             <jet-nav-link href="/posts" :active="route().current('post.index')">
                                 日報一覧
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item">
                             <jet-nav-link href="/mypostlists" :active="route().current('mypostlists.index')">
                                 My日報一覧
                             </jet-nav-link>

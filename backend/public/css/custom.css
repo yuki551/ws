@@ -11,6 +11,14 @@ button:focus {
   font-size: 14px;
 }
 
+@media (min-width: 740px) {
+  .hd-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .nav-active {
   border-color: #1AAD8F;
 }
@@ -498,6 +506,12 @@ button:focus {
   color: #fff;
 }
 
+.cmn-form-wrap .cmn-formbtn-back {
+  background: #7d7d7d;
+  border: none;
+  color: #fff;
+}
+
 .cmn-form-wrap .form-inner {
   font-size: 14px;
   font-weight: bold;
@@ -546,6 +560,12 @@ button:focus {
   max-width: 70%;
 }
 
+@media only screen and (max-width: 960px) {
+  .modal-form-wrap {
+    max-width: 90%;
+  }
+}
+
 .modal-form-wrap .form-remand textarea {
   height: 300px;
 }
@@ -589,5 +609,10 @@ button:focus {
 
 .no-contents {
   color: #333;
+}
+
+.error-text {
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=custom.css.map */

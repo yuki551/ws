@@ -142,6 +142,29 @@ class PostController extends Controller
             $user = Auth::user();
             $data = Client::all();
 
+            $back = session()->get('back');
+            if($back){
+                $olddata = [
+                    'oldclient_am' => session()->get('client_am'),
+                    'oldsummary_am' => session()->get('summary_am'),
+                    'oldcontents_am' => session()->get('contents_am'),
+                    'oldclient_pm' => session()->get('client_pm'),
+                    'oldsummary_pm' => session()->get('summary_pm'),
+                    'oldcontents_pm' => session()->get('contents_pm'),
+                ];
+                session()->forget(['confirm', 'user', 'team', 'date', 'client_am', 'summary_am', 'contents_am', 'client_pm', 'summary_pm', 'contents_pm', 'status', 'back']);
+
+                if ($user['role_id'] == 3) {
+                    return redirect('/dashboard')->with('message', '現在の権限では日報登録にはアクセスできません。');
+                } else if ($user['role_id'] == 5 || $user['role_id'] == 10) {
+                    // olddataを追加 02/03
+                    return Inertia::render('Post/Create', ['data' => $data, 'olddata' => $olddata]);
+                } else {
+                    return redirect('/dashboard')->with('message', '現在の権限では日報登録にはアクセスできません。');
+                }
+            }
+
+
             $olddata = [
                 'oldclient_am' => old('client_am'),
                 'oldsummary_am' => old('summary_am'),
@@ -175,35 +198,54 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        Validator::make($request->all(), [
-            'user' => ['required'],
-            'team' => ['required'],
-            'summary_am' => ['required'],
-            'contents_am' => ['required'],
-            'summary_pm' => ['required'],
-            'contents_pm' => ['required'],
-        ])->validate();
+        if ($request->back) {
 
 
-        $post = new Post();
-        $post->create([
-            'user' => $request->user,
-            'team' => $request->team,
-            'date' => $request->date,
-            'client_am' => $request->client_am,
-            'summary_am' => $request->summary_am,
-            'contents_am' => $request->contents_am,
-            'client_pm' => $request->client_pm,
-            'summary_pm' => $request->summary_pm,
-            'contents_pm' => $request->contents_pm,
-            'status' => $request->status,
-        ]);
+            $request->session()->put('back' , $request->back);
+            $request->session()->put('user' , $request->user);
+            $request->session()->put('team' , $request->team);
+            $request->session()->put('date' , $request->date);
+            $request->session()->put('client_am' , $request->client_am);
+            $request->session()->put('summary_am' , $request->summary_am);
+            $request->session()->put('contents_am' , $request->contents_am);
+            $request->session()->put('client_pm' , $request->client_pm);
+            $request->session()->put('summary_pm' , $request->summary_pm);
+            $request->session()->put('contents_pm' , $request->contents_pm);
+            $request->session()->put('status' , $request->status);
+            
+            return Inertia::render('Post/Create');
 
-        // Post::create($request->all());
+        }else{
 
-        return redirect('/posts/create')
-            ->with('message', '日報を提出しました。');
+            Validator::make($request->all(), [
+                'user' => ['required'],
+                'team' => ['required'],
+                'summary_am' => ['required'],
+                'contents_am' => ['required'],
+                'summary_pm' => ['required'],
+                'contents_pm' => ['required'],
+            ])->validate();
 
+
+            $post = new Post();
+            $post->create([
+                'user' => $request->user,
+                'team' => $request->team,
+                'date' => $request->date,
+                'client_am' => $request->client_am,
+                'summary_am' => $request->summary_am,
+                'contents_am' => $request->contents_am,
+                'client_pm' => $request->client_pm,
+                'summary_pm' => $request->summary_pm,
+                'contents_pm' => $request->contents_pm,
+                'status' => $request->status,
+            ]);
+
+            // Post::create($request->all());
+
+            return redirect('/posts/create')
+                ->with('message', '日報を提出しました。');
+        }
 
     }
 
