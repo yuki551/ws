@@ -81,7 +81,7 @@
                                 <div class="form-item form-summary">
                                     <label>
                                         <span>業務：</span>
-                                        <textarea class="cmn-form-textarea" v-model="form.summary_pm" placeholder="【業務】例：打ち合わせ、会議"></textarea>
+                                        <textarea class="cmn-form-textarea" v-model="form.summary_pm" placeholder="例：打ち合わせ、会議"></textarea>
                                     </label>
                                     <!-- validation文表示 02/05 -->
                                     <div v-if="$page.errors.summary_pm" class="text-red-500">
