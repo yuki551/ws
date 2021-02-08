@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{asset('/css/custom.css')}}">
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}">
 
     <!-- Scripts -->
     @routes

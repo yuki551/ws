@@ -45,6 +45,7 @@ class PostController extends Controller
             ->leftjoin('clients as client_a', 'posts.client_am', '=', 'client_a.id')
             ->leftjoin('clients as client_p', 'posts.client_pm', '=', 'client_p.id')
             ->where('status', '2')
+            ->orderBy('posts.created_at', 'desc')
             ->get();
 
         $user = Auth::user();

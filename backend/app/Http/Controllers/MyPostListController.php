@@ -41,8 +41,8 @@ class MyPostListController extends Controller
             'teams.name as team_name')
             ->join('users', 'posts.user', '=', 'users.id')
             ->join('teams', 'posts.team', '=', 'teams.id')
-            ->join('clients as client_a', 'posts.client_am', '=', 'client_a.id')
-            ->join('clients as client_p', 'posts.client_pm', '=', 'client_p.id')
+            ->leftjoin('clients as client_a', 'posts.client_am', '=', 'client_a.id')
+            ->leftjoin('clients as client_p', 'posts.client_pm', '=', 'client_p.id')
             ->where('status', '2')
             ->orderBy('posts.created_at', 'desc')
             ->get();

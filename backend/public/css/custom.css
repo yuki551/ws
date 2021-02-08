@@ -2,6 +2,79 @@ button:focus {
   outline: none;
 }
 
+.ykt-logo {
+  fill: #1AAD8F;
+  width: 100px;
+}
+
+.hd-navi {
+  font-size: 14px;
+}
+
+.nav-active {
+  border-color: #1AAD8F;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination li {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #d2d6dc;
+}
+
+.pagination li:not(:last-child) {
+  border-right: 0;
+}
+
+.pagination li:first-child.disabled, .pagination li:nth-child(2).disabled, .pagination li:nth-last-child(-n+2).disabled, .pagination li:last-child.disabled {
+  display: none;
+}
+
+.pagination li a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #1AAD8F;
+  font-weight: bold;
+}
+
+.pagination li a:hover {
+  background: #1AAD8F;
+  color: #fff;
+}
+
+.pagination li.active a {
+  background: #1AAD8F;
+  color: #fff;
+}
+
+.pagination li.disabled a {
+  pointer-events: none;
+}
+
 .dashboard-contents {
   color: #333;
 }
@@ -403,6 +476,7 @@ button:focus {
 
 .cmn-form-wrap .form-contents {
   font-weight: normal;
+  white-space: pre-line;
 }
 
 .cmn-form-wrap .form-contents .cmn-form-textarea {
@@ -467,5 +541,9 @@ button:focus {
 .marker {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, transparent), color-stop(0%, #fffec1));
   background: linear-gradient(transparent 60%, #fffec1 0%);
+}
+
+.no-contents {
+  color: #333;
 }
 /*# sourceMappingURL=custom.css.map */
