@@ -121,7 +121,8 @@
                                     @click.native="confirm(form)">確認</jet-button>
                                 </span>
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <button type="button" class="cmn-formbtn cmn-formbtn-back" onClick="history.back()">戻る</button>
+                                    <a class="cmn-formbtn cmn-formbtn-back"
+                                    :href="route('user.index')">戻る</a>
                                 </span>
 
                         </div>
