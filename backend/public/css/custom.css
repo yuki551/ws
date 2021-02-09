@@ -172,6 +172,7 @@ button:focus {
 }
 
 .postslist-item-hd .comment {
+  text-align: left;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;

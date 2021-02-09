@@ -139,8 +139,8 @@
                                 <div class="action"></div>
                             </div>
                             <ul class="postslist-body">
-                                <template v-for="(row, index) in userPosts">
-                                <li class="postslist-item" v-if="row.role_id == 10" v-bind:class="{active : accordionOpened.indexOf(row.id) >= 0}">
+                                <template v-for="(row, index) in unapprovedPostsOther">
+                                <li class="postslist-item" v-bind:class="{active : accordionOpened.indexOf(row.id) >= 0}">
                                     <div class="postslist-item-hd">
                                         <div class="date">{{ row.created_at | moment("YYYY年MM月DD日") }}</div>
                                         <div class="name">{{ row.user_name }}</div>
@@ -160,10 +160,10 @@
                                             <div class="action" v-show="accordionOpened.indexOf(row.id) >= 0">
                                                 <div class="action-wrap">
                                                     <div class="action-btn retry">
-                                                        <button v-if="replyFlag(index)" @click="edit(row)">差戻し</button>
+                                                        <button @click="edit(row)">差戻し</button>
                                                     </div>
                                                     <div class="action-btn approval">
-                                                        <button v-if="aprFlags(index)" @click="approveModal(row)">承認</button>
+                                                        <button @click="approveModal(row)">承認</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -536,6 +536,12 @@ export default {
         unapprovedPostsMine() {
             return this.unapprovedPosts.filter(row => {
                 return row.user == this.$page.user.id
+            })
+        },
+        // 未承認データから自分以外の提出日報を抽出
+        unapprovedPostsOther() {
+            return this.unapprovedPosts.filter(row => {
+                return row.user != this.$page.user.id
             })
         },
         // 未承認日報がある時
