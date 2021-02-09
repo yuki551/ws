@@ -18,7 +18,7 @@
                 </h2>
             </div>
         </div>
-        <div class="py-12">
+        <div class="py-12 page-home">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="dashboard-contents bg-white overflow-hidden shadow-xl sm:rounded-lg px-7 py-4">
                     <div
@@ -365,15 +365,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse">
+                                        <span class="flex rounded-md ml-3 w-auto">
                                             <button
                                                 wire:click.prevent="retryPost()"
                                                 @click="submission(form)"
                                                 type="button"
                                                 class="cmn-formbtn btn-submission">再提出</button>
                                         </span>
-                                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                        <span class="flex rounded-md mt-0 w-auto">
                                             <button @click="closeModal()" type="button" class="cmn-formbtn btn-cancel">キャンセル</button>
                                         </span>
                                     </div>
@@ -407,8 +407,8 @@
                                             <input type="hidden" v-model="form.contents_pm"/>
                                         </div>
                                     </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse">
+                                        <span class="flex rounded-md ml-3 w-auto">
                                             <button
                                                 wire:click.prevent="update()"
                                                 @click="approve(form)"
@@ -416,7 +416,7 @@
                                                 class="cmn-formbtn btn-approve"
                                             >承認</button>
                                         </span>
-                                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                        <span class="flex rounded-md mt-0 w-auto">
                                             <button @click="closeModal()" type="button" class="cmn-formbtn btn-cancel">キャンセル</button>
                                         </span>
                                     </div>
@@ -433,15 +433,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse">
+                                        <span class="flex rounded-md ml-3 w-auto">
                                             <button
                                                 wire:click.prevent="retryPost()"
                                                 @click="replyRow(form)"
                                                 type="button"
                                                 class="cmn-formbtn btn-remand">差戻し</button>
                                         </span>
-                                        <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                                        <span class="flex rounded-md mt-0 w-auto">
                                             <button @click="closeModal()" type="button" class="cmn-formbtn btn-cancel">キャンセル</button>
                                         </span>
                                     </div>

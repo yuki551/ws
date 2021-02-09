@@ -324,9 +324,10 @@ button:focus {
     }
 }
 
-@include media(lg-under) {
-    .page-postList {
-        .postslist-unapproved {
+// 日報一覧
+.page-postList {
+    .postslist-unapproved {
+        @include media(lg-under) {
             .postslist-hd {
                 display: none;
             }
@@ -350,6 +351,8 @@ button:focus {
 
                 .name {
                     order: 3;
+                    flex: 1;
+                    border-right: 1px solid $c-border;
                 }
 
                 .action {
@@ -363,6 +366,209 @@ button:focus {
                     border: none;
                     border-top: 1px solid $c-border;
                 }
+            }
+        }
+
+        @include media(xs) {
+            .postslist-body {
+                .date {
+                    padding: 5px 0;
+                    width: 50%;
+                    border-right: 1px solid $c-border;
+                    border-bottom: 1px solid $c-border;
+                }
+
+                .team {
+                    padding: 5px 0;
+                    width: 50%;
+                    border-left: 0;
+                    border-bottom: 1px solid $c-border;
+                }
+
+                .name {
+                    width: 50%;
+                    border-left: 0;
+                    border-right: 0;
+                }
+
+                .action {
+                    width: 50%;
+                    padding: 10px 0;
+                }
+            }
+
+        }
+    }
+}
+
+// My日報一覧
+.page-myPostList {
+    .postslist-unapproved {
+        @media only screen and (max-width: 699px) {
+            .postslist-hd {
+                display: none;
+            }
+
+            .postslist-body {
+                .postslist-item {
+                    border-top: 3px solid #1AAD8F;
+                }
+
+                .postslist-item-hd {
+                    flex-wrap: wrap;
+                }
+
+                .date {
+                    border-right: 1px solid $c-border2;
+                    width: 50%;
+                    order: 1;
+                }
+
+                .action {
+                    width: 50%;
+                    order: 2;
+                    flex: 1;
+                }
+
+                .postslist-item-body {
+                    order: 3;
+                    width: 100%;
+                    flex: auto;
+                    border: none;
+                    border-top: 1px solid $c-border;
+                }
+            }
+        }
+    }
+}
+
+// ホーム
+.page-home {
+    @media only screen and (max-width: 699px) {
+        .postslist-hd {
+            display: none;
+        }
+
+        .postslist-item:first-child {
+            border-top: 1px solid $c-border;
+        }
+
+        .postslist-item-hd {
+            border-top: 2px solid $c-border;
+        }
+
+        // 差戻し
+        .postslist-remand {
+            .postslist-item-hd {
+                flex-wrap: wrap;
+
+                .date {
+                    order: 1;
+                    width: 50%;
+                }
+
+                .action {
+                    order: 2;
+                    width: 50%;
+                }
+
+                .comment {
+                    order: 3;
+                    width: 100%;
+                    border: 0;
+                    border-top: 1px solid $c-border2;
+                    text-align: left;
+                }
+
+            }
+        }
+
+        // 未承認
+        .postslist-unapproved {
+            .postslist-item-hd {
+                flex-wrap: wrap;
+
+                .date {
+                    order: 1;
+                }
+
+                .name {
+                    order: 2;
+                    flex: 1;
+                    border-right: 1px solid $c-border2;
+                    border-left: 1px solid $c-border2;
+                }
+
+                .action {
+                    order: 3;
+                }
+
+                .postslist-item-body {
+                    order: 4;
+                    width: 100%;
+                    flex: auto;
+                    border: 0;
+                    border-top: 1px solid $c-border2;
+                    text-align: left;
+                }
+
+            }
+        }
+
+        // 承認待ち
+        .postslist-unapproved-mine {
+            .postslist-hd {
+                display: none;
+            }
+
+            .postslist-body {
+                .postslist-item-hd {
+                    flex-wrap: wrap;
+                }
+
+                .date {
+                    border-right: 1px solid $c-border2;
+                    width: 50%;
+                    order: 1;
+                }
+
+                .action {
+                    width: 50%;
+                    order: 2;
+                    flex: 1;
+                }
+
+                .postslist-item-body {
+                    order: 3;
+                    width: 100%;
+                    flex: auto;
+                    border: none;
+                    border-top: 1px solid $c-border;
+                }
+            }
+        }
+    }
+
+    @include media(xs) {
+        .postslist-unapproved {
+            .postslist-item-hd {
+                .date {
+                    padding: 5px 0;
+                    width: 50%;
+                }
+
+                .name {
+                    padding: 5px 0;
+                    width: 50%;
+                    flex: auto;
+                }
+
+                .action {
+                    border-top: 1px solid $c-border2;
+                    width: 100%;
+                    padding: 10px 0;
+                }
+
             }
         }
     }
@@ -529,6 +735,7 @@ button:focus {
     max-width: 70%;
 
     @include media(lg-under) {
+        width: 90%;
         max-width: 90%;
     }
 
