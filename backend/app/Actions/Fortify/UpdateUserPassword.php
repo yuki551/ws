@@ -24,7 +24,8 @@ class UpdateUserPassword implements UpdatesUserPasswords
             'password' => $this->passwordRules(),
         ],[
             'current_password.required' => '現在のパスワードを入力してください。',
-            'password.confirmed' => '新しいパスワードと新しいパスワード(確認用)が一致しません',
+            'password.confirmed' => '新しいパスワードと新しいパスワード(確認用)が一致しません。',
+            'password.string' => 'パスワードは8文字以上で入力してください。',
         ],
         )->after(function ($validator) use ($user, $input) {
             if (! Hash::check($input['current_password'], $user->password)) {
