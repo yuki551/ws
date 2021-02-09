@@ -400,7 +400,7 @@ class UserController extends Controller
             // バリデーションエラーだった場合
             if ($validator->fails()) {
                 session()->forget('confirm');
-                return redirect('user.create')
+                return redirect('/users/create')
                     ->withErrors($validator)
                     ->withInput();
             }
@@ -439,7 +439,7 @@ class UserController extends Controller
             // バリデーションエラーだった場合
             if ($validator->fails()) {
                 session()->forget('confirm');
-                return redirect('user.create')
+                return redirect('/users/create')
                     ->withErrors($validator)
                     ->withInput();
             }
@@ -481,7 +481,7 @@ class UserController extends Controller
             // バリデーションエラーだった場合
             if ($validator->fails()) {
                 session()->forget('confirm');
-                return redirect('user.create')
+                return redirect('/users/create')
                     ->withErrors($validator)
                     ->withInput();
             }

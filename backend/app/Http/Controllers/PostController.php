@@ -313,7 +313,7 @@ class PostController extends Controller
         if ($validator->fails()) {
             session()->forget(['confirm', 'user', 'team', 'date', 'client_am', 'summary_am', 'contents_am', 'client_pm', 'summary_pm', 'contents_pm', 'status']);
 
-            return redirect('post.create')
+            return redirect('/posts/create')
                 ->withErrors($validator)
                 ->withInput();
         }
