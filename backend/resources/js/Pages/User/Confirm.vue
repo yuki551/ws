@@ -281,16 +281,16 @@ export default {
         },
 
         editUser: function(data){
-            data._method = 'PUT';
-            this.$inertia.put('/users/' + data.id, data);
+            data._method = 'POST';
+            this.$inertia.post('/users/' + data.id, data);
             this.reset();
         },
         editback: function(data){
-            data._method = 'GET';
-            this.$inertia.get('/users/' + data.id + '/edit', data);
+            data._method = 'POST';
+            data['back'] = true;
+            this.$inertia.post('/users/' + data.id, data);
             this.reset();
         },
-        
     },
 };
 </script>

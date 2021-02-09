@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 // admin controller
 use App\Http\Controllers\AdminController;
 // dashboard controller
@@ -9,20 +8,14 @@ use App\Http\Controllers\HomeController;
 // 日報管理用controller
 use App\Http\Controllers\PostController;
 // 日報一覧表示controller
-use App\Http\Controllers\PostListController;
 use App\Http\Controllers\MyPostListController;
-// 社員一覧表示controller
-use App\Http\Controllers\UserListController;
-// 取引先一覧表示controller
+// 社員管理
+use App\Http\Controllers\UserController;
+// 顧客一覧表示controller
+
 use App\Http\Controllers\ClientListController;
 // 取引先登録
 use App\Http\Controllers\ClientCreateController;
-// 社員登録
-use App\Http\Controllers\EmployeeCreateController;
-// 社員編集
-use App\Http\Controllers\EmployeeEditController;
-use App\Http\Controllers\UserController;
-// use App\Http\Controllers\UserConfirmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,26 +35,10 @@ Route::get('/', function () {
 Route::redirect('/', 'dashboard');
 
 Route::resource('dashboard', HomeController::class);
-// 日報管理用controllerへroute
-// Route::resource('posts', PostController::class);
-
-
 Route::resource('admin', AdminController::class);
-
-Route::resource('/postlists', PostListController::class);
 Route::resource('/mypostlists', MyPostListController::class);
-
-Route::resource('/userlists', UserListController::class);
-
 Route::resource('/clientlists', ClientListController::class);
 Route::resource('/clients_create', ClientCreateController::class);
-
-Route::resource('/employee_create', EmployeeCreateController::class);
-// Route::resource('/employee_edit', EmployeeEditController::class);
-// Route::post('/employee_edit', [EmployeeEditController::class, 'post']);
-
-// Route::resource('/users/confirm', UserConfirmController::class);
-
 
 Route::get('/posts', [PostController::class, 'index'])
     ->name('post.index');
@@ -86,13 +63,12 @@ Route::post('/users', [UserController::class, 'store'])
     ->name('user.store');
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])
     ->name('user.edit');
-Route::put('/users/{user}', [UserController::class, 'update'])
-    ->name('user.update');
-
-Route::delete('/users/{user}', [UserController::class, 'destroy'])
-    ->name('user.destroy');
 Route::post('/users/confirm', [UserController::class, 'confirm'])
     ->name('user.confirm');
+Route::post('/users/{user}', [UserController::class, 'update'])
+    ->name('user.update');
+Route::delete('/users/{user}', [UserController::class, 'destroy'])
+    ->name('user.destroy');
 Route::get('/users/confirm', [UserController::class, 'getconfirm'])
     ->name('user.getconfirm');
 Route::get('/users/{user}', [UserController::class, 'show'])

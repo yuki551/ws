@@ -19,9 +19,9 @@
                             </div>
                         </div>
                     </div>
-                    <form>
+                    <form class="cmn-form-wrap">
                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                            <div class="">
+                            <div class="form-inner">
                                 <input type="hidden" v-model="form.id"/>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2">
@@ -110,7 +110,7 @@
                                     <button
                                         wire:click.prevent="destroy()"
                                         type="button"
-                                        class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                                        class="cmn-formbtn btn-submission"
                                         v-show="!editMode"
                                         @click="deleteUser(form.id)">
                                         削除
