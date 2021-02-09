@@ -1,9 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                取引先一覧
-            </h2>
+            <h2 id="js-page-title" class="font-semibold text-xl text-gray-800 leading-tight">取引先一覧</h2>
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -51,6 +49,10 @@ export default {
             },
         };
     },
+    mounted: function(){
+        const pageTitle = document.getElementById("js-page-title").textContent;
+		document.title = pageTitle + ' | 夢を叶え太郎';
+	},
     computed: {
         userPosts: function() {
             return this.data;

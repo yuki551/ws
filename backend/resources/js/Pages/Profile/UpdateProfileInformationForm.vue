@@ -105,6 +105,9 @@
                 photoPreview: null,
             }
         },
+        mounted: function(){
+            document.title = 'Profile | 夢を叶え太郎';
+        },
 
         methods: {
             updateProfileInformation() {

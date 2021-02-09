@@ -11,6 +11,8 @@ button:focus {
 
 .hd-navi {
     font-size: 14px;
+    position: sticky;
+    top: 0;
 }
 
 @media (min-width: 740px) {

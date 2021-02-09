@@ -1,9 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                My日報一覧
-            </h2>
+            <h2 id="js-page-title" class="font-semibold text-xl text-gray-800 leading-tight">My日報一覧</h2>
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -158,6 +156,10 @@ export default {
             perPage: 50,
         };
     },
+    mounted: function(){
+        const pageTitle = document.getElementById("js-page-title").textContent;
+		document.title = pageTitle + ' | 夢を叶え太郎';
+	},
     computed: {
         // ログインしているユーザーの投稿のみデータを格納。
         userPosts: function() {

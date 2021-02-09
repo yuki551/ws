@@ -1,9 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                社員情報確認
-            </h2>
+            <h2 id="js-page-title" class="font-semibold text-xl text-gray-800 leading-tight">社員情報確認</h2>
         </template>
 
         <div class="py-12">
@@ -132,8 +130,8 @@
                         </div>
 
                         <div v-if="form.confirm == 1">
-                            
-                        
+
+
                             <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                                     <button
@@ -169,7 +167,7 @@
                                     </button>
                                 </span>
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                    <a :href="route('user.edit',form.id)">                                                    
+                                    <a :href="route('user.edit',form.id)">
                                         <button
                                             wire:click.prevent="update()"
                                             class="cmn-formbtn cmn-formbtn-back"
@@ -233,6 +231,10 @@ export default {
             ],
         };
     },
+    mounted: function(){
+        const pageTitle = document.getElementById("js-page-title").textContent;
+		document.title = pageTitle + ' | 夢を叶え太郎';
+	},
     computed: {
         // ログインしているユーザーの投稿のみデータを格納。
 

@@ -2,9 +2,7 @@
     <app-layout>
         <!-- {{ usrPosNull }} -->
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                ホーム
-            </h2>
+            <h2 id="js-page-title" class="font-semibold text-xl text-gray-800 leading-tight">ホーム</h2>
         </template>
         <div v-if="notifyReply" class="bg-red-400 shadow">
             <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 text-center">
@@ -479,6 +477,10 @@ export default {
             index: 0,
         };
     },
+    mounted: function(){
+        const pageTitle = document.getElementById("js-page-title").textContent;
+		document.title = pageTitle + ' | 夢を叶え太郎';
+	},
     computed: {
         // ログインしているユーザーの投稿のみデータを格納。
         userPosts: function() {

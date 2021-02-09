@@ -1,9 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                社員編集
-            </h2>
+            <h2 id="js-page-title" class="font-semibold text-xl text-gray-800 leading-tight">社員編集</h2>
         </template>
 
 
@@ -181,6 +179,10 @@ export default {
             ],
         };
     },
+    mounted: function(){
+        const pageTitle = document.getElementById("js-page-title").textContent;
+		document.title = pageTitle + ' | 夢を叶え太郎';
+	},
     computed: {
         // ログインしているユーザーの投稿のみデータを格納。
         teams: function() {
