@@ -116,6 +116,17 @@
                                         削除
                                     </button>
                                 </span>
+                                <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                    <button
+                                        wire:click.prevent="destroy()"
+                                        type="button"
+                                        class="cmn-formbtn cmn-formbtn-back"
+                                        v-show="!editMode"
+                                        @click="back()">
+                                        戻る
+                                    </button>
+
+                                </span>
                             </div>
 
 
@@ -219,6 +230,10 @@ export default {
             this.form.delete(route("user.destroy", id), {
                 preserveScroll: false,
             });
+            this.reset();
+        },
+        back: function(){
+            this.$inertia.get('/users');
             this.reset();
         },
     },

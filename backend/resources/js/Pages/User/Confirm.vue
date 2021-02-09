@@ -132,6 +132,8 @@
                         </div>
 
                         <div v-if="form.confirm == 1">
+                            
+                        
                             <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                                     <button
@@ -160,11 +162,22 @@
                                     <button
                                         wire:click.prevent="update()"
                                         type="button"
-                                        class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                                        class="cmn-formbtn cmn-formbtn-main"
                                         v-show="!editMode"
                                         @click="editUser(form)">
                                         更新
                                     </button>
+                                </span>
+                                <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                    <a :href="route('user.edit',form.id)">                                                    
+                                        <button
+                                            wire:click.prevent="update()"
+                                            class="cmn-formbtn cmn-formbtn-back"
+                                            v-show="!editMode"
+                                            @click="editback(form)">
+                                            戻る
+                                        </button>
+                                    </a>
                                 </span>
                             </div>
                         </div>
@@ -272,6 +285,12 @@ export default {
             this.$inertia.put('/users/' + data.id, data);
             this.reset();
         },
+        editback: function(data){
+            data._method = 'GET';
+            this.$inertia.get('/users/' + data.id + '/edit', data);
+            this.reset();
+        },
+        
     },
 };
 </script>

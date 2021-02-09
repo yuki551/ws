@@ -615,4 +615,15 @@ button:focus {
   font-weight: bold;
   margin-bottom: 20px;
 }
+
+.client-list {
+  text-align: center;
+}
+
+.client-list .client-name {
+  background: #F4FAF9;
+  color: #1AAD8F;
+  font-weight: bold;
+  border: 1px solid #d2d6dc;
+}
 /*# sourceMappingURL=custom.css.map */

@@ -117,8 +117,8 @@
 
                                 <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
 
-                                    <jet-button class="bg-green-700 text-base"
-                                    @click.native="confirm(form)">更新</jet-button>
+                                    <jet-button class="cmn-formbtn cmn-formbtn-main"
+                                    @click.native="confirm(form)">確認</jet-button>
                                 </span>
 
                         </div>
