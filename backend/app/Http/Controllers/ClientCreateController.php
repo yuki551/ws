@@ -21,9 +21,20 @@ class ClientCreateController extends Controller
      */
     public function store(Request $request)
     {
-        Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => ['required'],
-        ])->validate();
+        ],
+        [
+            'name.required' => '取引先名は、必ず指定してください。',
+        ],
+        );
+
+        // バリデーションエラーだった場合
+        if ($validator->fails()) {
+            return redirect('/clients_create')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         Client::create($request->all());
 
