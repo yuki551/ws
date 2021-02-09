@@ -427,11 +427,12 @@
                                         <div class="form-inner">
                                             <div class="form-item form-remand-comment">
                                                 <label>
-                                                    <span>差し戻しコメント：</span>
-                                                    <textarea class="cmn-form-textarea" v-model="form.comment" placeholder="差戻し理由を記入してください。"></textarea>
+                                                    <span>差戻しコメント：</span>
+                                                    <textarea id="js-remand-comment" class="cmn-form-textarea" v-model="form.comment" placeholder="差戻し理由を記入してください。"></textarea>
                                                 </label>
                                             </div>
                                         </div>
+                                        <div v-if="replyBtnDisable" class="error-text text-red-500">差戻し理由の記載がありません。</div>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse">
                                         <span class="flex rounded-md ml-3 w-auto">
@@ -467,6 +468,7 @@ export default {
             editMode: false,
             isOpen: false,
             approveFlag: false,
+            replyBtnDisable: false,
             accordionOpened: [],
             userPost: [],
             status: 0,
@@ -604,6 +606,7 @@ export default {
             this.reset();
             this.editMode = false;
             this.approveFlag = false;
+            this.replyBtnDisable = false;
         },
         toggleAccordion: function(data){
             if (this.accordionOpened.indexOf(data) >= 0) {
@@ -637,12 +640,20 @@ export default {
         // -----ボタン実行時の処理-----
         // 差戻し処理
         replyRow: function(data) {
-            data._method = 'PUT';
-            data['status'] = 3;
-            delete data['role_id'];
-            this.$inertia.post('/dashboard/' + data.id, data);
-            this.reset();
-            this.closeModal();
+            this.replyBtnDisable = false;
+            var textarea = document.getElementById("js-remand-comment");
+            var currentTextNum = textarea.value.length;
+            if(currentTextNum > 0){
+                data._method = 'PUT';
+                data['status'] = 3;
+                delete data['role_id'];
+                this.$inertia.post('/dashboard/' + data.id, data);
+                this.reset();
+                this.closeModal();
+                this.replyBtnDisable = false;
+            } else {
+                this.replyBtnDisable = true;
+            }
         },
         // 承認処理
         approve: function(data) {
