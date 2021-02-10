@@ -25,8 +25,10 @@ class MyPostListController extends Controller
      */
     public function index()
     {
-        //$data = User::leftjoin('posts', 'users.id', '=', 'posts.user')->where('status', '2')->get();
-        //$data = User::select('users.name as user_name', 'posts.created_at', 'summary_am', 'clients.name as client_name_am', 'contents_am', 'summary_pm', 'clients.name as client_name_pm', 'contents_pm', 'teams.name as team_name')->join('posts', 'users.id', '=', 'posts.user')->join('teams', 'users.current_team_id', '=', 'teams.id')->join('clients', 'posts.client_am', '=', 'clients.id')->join('clients', 'posts.client_pm', '=', 'clients.id') ->where('status', '2')->get();
+
+        $user = Auth::user();
+        $user_id = $user->id;
+
         $data = Post::select(
             'posts.id',
             'posts.user',
@@ -44,23 +46,15 @@ class MyPostListController extends Controller
             ->leftjoin('clients as client_a', 'posts.client_am', '=', 'client_a.id')
             ->leftjoin('clients as client_p', 'posts.client_pm', '=', 'client_p.id')
             ->where('status', '2')
+            ->where('posts.user', $user_id)
             ->orderBy('posts.created_at', 'desc')
             ->get();
 
-        $user = Auth::user();
-        // var_dump($data);
 
-        // var_dump($user["role_id"]);
         $conf = config('setting.status');
 
         return Inertia::render('mypostlists', ['data' => $data, 'conf' => $conf]);
 
-        //管理者用ページ
-        // if ($user["role_id"] == 1) {
-        //     return Inertia::render('admin', ['data' => $data, 'conf' => $conf]);
-        // } else {
-        //     return Inertia::render('dashboard', ['data' => $data, 'conf' => $conf]);
-        // }
     }
 
 

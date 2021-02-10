@@ -39,6 +39,7 @@ class HomeController extends Controller
             ->leftjoin('clients as client_a', 'posts.client_am', '=', 'client_a.id')
             ->leftjoin('clients as client_p', 'posts.client_pm', '=', 'client_p.id')
             ->join('roles', 'roles.role_id', '=', 'users.role_id')
+            ->where('status', '!=', '2')
             ->orderBy('posts.updated_at', 'asc')
             ->get();
 

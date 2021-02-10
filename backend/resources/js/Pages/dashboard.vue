@@ -490,7 +490,7 @@ export default {
             if (this.$page.user.role_id == 10) {
                 this.userPost = [];
                 for (let i = 0; i < this.data.length; i++) {
-                    if (this.data[i].user == this.$page.user.id && !(this.data[i].status == 2)) {
+                    if (this.data[i].user == this.$page.user.id) {
                         this.userPost.push(this.data[i]);
                     }
                 }
@@ -499,7 +499,7 @@ export default {
                 //部長role
                 this.userPost = [];
                 for (let i = 0; i < this.data.length; i++) {
-                    if (this.data[i].team == this.$page.user.current_team_id && !(this.data[i].status == 2)) {
+                    if (this.data[i].team == this.$page.user.current_team_id) {
                         this.userPost.push(this.data[i]);
 
                         this.otherRemand(i);
@@ -511,7 +511,7 @@ export default {
                 //社長role
                 this.userPost = [];
                 for (let i = 0; i < this.data.length; i++) {
-                    if (this.data[i].status == 1 && this.data[i].role_id == 5 && !(this.data[i].status == 2)) {
+                    if (this.data[i].status == 1 && this.data[i].role_id == 5) {
                         this.userPost.push(this.data[i]);
 
                         this.otherRemand(i);
@@ -707,9 +707,6 @@ export default {
                 (1 == this.userPost[index]['status'] && 5 == this.userPost[index]['role_id'] && 3 == this.$page.user.role_id)
             ) {
                 return true;
-                // 承認済みの時
-            } else if (2 == this.userPost[index]['status']) {
-                return false;
                 // 差し戻しの時
             } else if (3 == this.userPost[index]['status']) {
                 return false;
@@ -732,9 +729,6 @@ export default {
                 (1 == this.userPost[index]['status'] && 5 == this.userPost[index]['role_id'] && 3 == this.$page.user.role_id)
             ) {
                 return true;
-                // 承認済みの時
-            } else if (2 == this.userPost[index]['status']) {
-                return false;
                 // 差し戻しの時
             } else if (3 == this.userPost[index]['status']) {
                 return false;
@@ -755,9 +749,6 @@ export default {
                 (1 == this.form['status'] && 5 == this.form['role_id'] && 3 == this.$page.user.role_id)
             ) {
                 return true;
-                // 承認済みの時
-            } else if (2 == this.form['status']) {
-                return false;
                 // 差し戻しの時
             } else if (3 == this.form['status']) {
                 return false;
@@ -775,9 +766,6 @@ export default {
                 this.$page.user.id == this.userPost[index]['user']
             ) {
                 return true;
-                // 承認済みの時
-            } else if (2 == this.userPost[index]['status']) {
-                return false;
                 // 未承認
             } else if (1 == this.userPost[index]['status']) {
                 return false;
@@ -794,9 +782,6 @@ export default {
                 this.$page.user.id == this.form.user
             ) {
                 return true;
-                // 承認済みの時
-            } else if (2 == this.form['status']) {
-                return false;
                 // 差し戻しの時
             } else if (1 == this.form['status']) {
                 return false;

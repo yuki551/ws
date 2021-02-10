@@ -163,13 +163,7 @@ export default {
     computed: {
         // ログインしているユーザーの投稿のみデータを格納。
         userPosts: function() {
-            this.userPost = [];
-            for (let i = 0; i < this.data.length; i++) {
-                if (this.data[i].user == this.$page.user.id) {
-                    this.userPost.push(this.data[i]);
-                }
-            }
-            return this.userPost;
+            return this.data;
         },
         noPost: function() {
             if (this.userPosts.length == 0) {
