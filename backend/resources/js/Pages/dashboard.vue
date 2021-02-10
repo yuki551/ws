@@ -70,9 +70,7 @@
                                                         <button v-if="replyFlag(index)" @click="edit(row)">差戻し</button>
                                                     </div>
                                                     <div class="action-btn approval">
-                                                        <button v-if="aprFlags(index)"
-                                                    wire:click.prevent="update()"
-                                                    @click="approve(row)">承認</button>
+                                                        <button @click="approveModal(row)">承認</button>
                                                     </div>
                                                 </div>
                                             </div>

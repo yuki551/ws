@@ -21,6 +21,7 @@ class AdminCreateSeeder extends Seeder
                 'email' => 'admin@example.com',
                 'password' => '$2y$10$u92P1qTDvaXBKyFj5ZnqGe75Z22opIBn0arYlnRWvFIK9lW6hHiQu',
                 'current_team_id' => 1,
+                'auth_id' => 1,
                 'role_id' => 1,
             ]
         );
