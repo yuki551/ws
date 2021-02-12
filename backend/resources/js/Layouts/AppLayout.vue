@@ -18,8 +18,8 @@
                             </jet-nav-link>
                         </div>
 
-                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item">
-                            <jet-nav-link v-if="$page.user.role_id != 3" href="/posts/create" :active="route().current('post.create')">
+                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item" v-if="$page.user.role_id != 3">
+                            <jet-nav-link href="/posts/create" :active="route().current('post.create')">
                                 日報登録
                             </jet-nav-link>
                         </div>
