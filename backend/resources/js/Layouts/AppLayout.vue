@@ -29,7 +29,7 @@
                                 日報一覧
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item">
+                        <div class="hidden space-x-8 sm:-myt-px sm:ml-10 hd-item" v-if="$page.user.role_id != 3">
                             <jet-nav-link href="/mypostlists" :active="route().current('mypostlists.index')">
                                 My日報一覧
                             </jet-nav-link>
@@ -100,7 +100,7 @@
                                         日報一覧
                                     </jet-dropdown-link>
 
-                                    <jet-dropdown-link :href="route('mypostlists.index')">
+                                    <jet-dropdown-link :href="route('mypostlists.index')" v-if="$page.user.role_id != 3">
                                         My日報一覧
                                     </jet-dropdown-link>
 
@@ -204,7 +204,7 @@
                             日報一覧
                         </jet-responsive-nav-link>
 
-                        <jet-responsive-nav-link :href="route('mypostlists.index')">
+                        <jet-responsive-nav-link :href="route('mypostlists.index')" v-if="$page.user.role_id != 3">
                             My日報一覧
                         </jet-responsive-nav-link>
 
